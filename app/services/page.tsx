@@ -19,6 +19,7 @@ export default function ServicesPage() {
 
         servicesTag: "服务范围",
         servicesTitle: "我们可以提供的支持",
+        serviceLabel: "服务",
         services: [
           {
             title: "学签申请与续签",
@@ -89,6 +90,7 @@ export default function ServicesPage() {
 
       servicesTag: "Service Areas",
       servicesTitle: "What We Support",
+      serviceLabel: "Service",
       services: [
         {
           title: "Study Permit & Extension",
@@ -176,13 +178,26 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="bg-white py-20">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="mb-12 max-w-2xl">
+      <section className="relative overflow-hidden bg-white py-16 md:py-20">
+        {/* 背景图 */}
+        <img
+          src="/services.jpg"
+          alt="Service background"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+
+        {/* 虚化 + 浅色遮罩 */}
+        <div className="absolute inset-0 bg-[#f8f6f1]/60" />
+
+        {/* 轻微光感 */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(201,162,74,0.08),_transparent_30%)]" />
+
+        <div className="relative z-10 mx-auto max-w-7xl px-6">
+          <div className="mb-10 max-w-2xl md:mb-12">
             <p className="mb-3 text-sm font-semibold uppercase tracking-[0.28em] text-[#c9a24a]">
               {content.servicesTag}
             </p>
-            <h2 className="text-4xl font-semibold tracking-tight">
+            <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">
               {content.servicesTitle}
             </h2>
           </div>
@@ -191,33 +206,38 @@ export default function ServicesPage() {
             {content.services.map((item, index) => (
               <div
                 key={item.title}
-                className="rounded-3xl border border-[#eee4d1] bg-[#f8f6f1] p-8 transition hover:-translate-y-1 hover:shadow-md"
+                className="rounded-3xl border border-[#eee4d1] bg-white/88 p-8 shadow-sm backdrop-blur-sm transition hover:-translate-y-1 hover:shadow-md"
               >
                 <div className="mb-5 flex items-center gap-3">
                   <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#10233f] text-sm font-bold text-white">
                     {index + 1}
                   </span>
                   <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#c9a24a]">
-                    Service
+                    {content.serviceLabel}
                   </p>
                 </div>
 
-                <h3 className="mb-4 text-xl font-semibold">{item.title}</h3>
-                <p className="leading-8 text-[#10233f]/70">{item.desc}</p>
+                <h3 className="mb-4 text-xl font-semibold leading-snug md:text-2xl">
+                  {item.title}
+                </h3>
+
+                <p className="text-[15px] leading-8 text-[#10233f]/70 md:text-base">
+                  {item.desc}
+                </p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-[#10233f] py-20 text-white">
+      <section className="bg-[#10233f] py-16 text-white md:py-20">
         <div className="mx-auto grid max-w-7xl gap-10 px-6 md:grid-cols-[0.95fr_1.05fr] md:items-center">
           <div>
             <p className="mb-3 text-sm font-semibold uppercase tracking-[0.28em] text-[#c9a24a]">
               {content.processTag}
             </p>
 
-            <h2 className="mb-6 text-4xl font-semibold leading-tight tracking-tight">
+            <h2 className="mb-6 text-3xl font-semibold leading-tight tracking-tight md:text-4xl">
               {content.processTitle}
             </h2>
 
@@ -249,17 +269,17 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="bg-[#f8f6f1] py-20">
+      <section className="bg-[#f8f6f1] py-16 md:py-20">
         <div className="mx-auto max-w-5xl px-6 text-center">
           <p className="mb-3 text-sm font-semibold uppercase tracking-[0.28em] text-[#c9a24a]">
             {content.ctaTag}
           </p>
 
-          <h2 className="mb-6 text-4xl font-semibold tracking-tight">
+          <h2 className="mb-6 text-3xl font-semibold tracking-tight md:text-4xl">
             {content.ctaTitle}
           </h2>
 
-          <p className="mx-auto mb-8 max-w-2xl text-lg leading-8 text-[#10233f]/72">
+          <p className="mx-auto mb-8 max-w-2xl text-base leading-8 text-[#10233f]/72 md:text-lg">
             {content.ctaDesc}
           </p>
 
