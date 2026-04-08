@@ -20,7 +20,7 @@ const noto = Noto_Sans_SC({
 
 export const metadata = {
   title: "Summit Immigration & Education",
-  description: "Immigration and education support in Canada",
+  description: "Immigration consultant in Vancouver, Canada. We provide support for study permits, work permits, visitor visas, and school applications.",
 };
 
 export default function RootLayout({
